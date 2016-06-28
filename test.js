@@ -1,6 +1,18 @@
 import test from 'ava';
-import @joegesualdo/is-empty-line from './dist'
+import isEmptyLine from './dist';
 
-test(t => {
-    t.deepEqual([1, 2], [1, 2]);
+test('detects if line consists of a single space', t => {
+  t.true(isEmptyLine(' '));
+});
+
+test('detects if line consists of multiple spaces', t => {
+  t.true(isEmptyLine('  '));
+});
+
+test('detects if line consists only a new line character ("\\n")', t => {
+  t.true(isEmptyLine('\n  '));
+});
+
+test('detects if line consists of spaces and new line characters ("\\n")', t => {
+  t.true(isEmptyLine('\n  '));
 });
